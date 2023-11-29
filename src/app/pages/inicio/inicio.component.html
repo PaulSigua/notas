@@ -1,0 +1,62 @@
+<div class="contenedor">
+    <div class="contenedor-secundario">
+        <div class="contenedor-init">
+            <div class="bienvenida">
+                <h2>¡Bienvenido!</h2>
+            </div>
+            <div class="texto-ini">
+                Puedes ingresar tus notas y guardarlas en las secciones que desees y mantener una clasificación 
+                sin perder la comodidad.
+            </div>
+
+            <div class="texto-ini">
+                ¡No olvides que puedes editar tus notas!
+            </div>
+        </div>
+    </div>
+    <div class="formulario">
+        <div class="form-init">
+            <div class="form-contenedor">
+                <form action="" class="form-text">
+
+                    <label for="nombreNota">Nombre de la Nota: </label>
+                    <br>
+                    <input type="text" placeholder=" nota" #titulo>
+                    <br><br>
+
+                    <label for="">Escriba: </label>
+                    <br>
+
+                    <textarea name="" id="" cols="30" rows="10" placeholder=" escribir" #resenia></textarea>
+                    <br><br>
+
+                    <label for="opciones">Categoría: </label>
+                    <select name="opciones" id="opciones" [(ngModel)]="categoria" placeholder="Seleccione">Seleccione
+                        <option value="Tarea">Tarea</option>
+                        <option value="Prueba">Prueba</option>
+                        <option value="Examen">Examen</option>
+                        <option value="Práctica">Práctica</option>
+                        <option value="Materia">Materia</option>
+                    </select>
+                    <br><br>
+
+                    <label for="">Ingrese la fecha: </label>
+                    <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
+                    <br><br>
+
+                    <button type="submit" (click)="guardarNota(titulo, resenia, fecha)">Aceptar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-contenedor">
+        <footer>
+            <div class="text-footer">
+                <H3>Realizado por:</H3>
+                <H2>Paúl Mateo Sigua Calle</H2>
+                <H3>Universidad Politécnica Salesiana</H3>
+            </div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,314 @@
+<div class="contenedor">
+    <div class="contenedor-titulo">
+        <div class="contenedor-init">
+            <div class="bienvenida">
+                <h2>Aquí están tus notas</h2>
+            </div>
+        </div>
+    </div>
+    <div class="contenedor-tareas">
+        <div class="contenedor-secundario">
+            <h1>Tareas</h1>
+            <div class="columnas">
+                <div class="notas-list">
+                    <div *ngFor="let t of tareas" class="notas-cargadas">
+                        <h2>{{t.titulo}}</h2>
+                        <div class="tarea-res">
+                            {{t.resenia}}
+                        </div>
+                        <div>
+                            {{t.fecha}}
+                        </div>
+                        <div class="btn-edit-elim">
+                            <button class="btn" (click)="editarNota(t)" [disabled]="botonDesac">Editar Nota</button>
+                            <button class="btn" (click)="eliminarNota(t)" [disabled]="botonDesac">Eliminar Nota</button>
+                        </div>
+
+                        <div class="contenedor-form-edit">
+                            <div *ngIf="mostrarFormulario && t == notaEditando" class="form-edit-nota">
+                                <form action="" id="formularioNota" class="form-text">
+                                    <label for="nombreNota">Nombre de la Nota: </label>
+                                    <br>
+                                    <textarea id="titulo" name="titulo" type="text" placeholder=" nota" #titulo
+                                        class="titulo-input">{{t.titulo}}</textarea>
+                                    <br><br>
+
+                                    <label for="">Escriba: </label>
+                                    <br>
+
+                                    <textarea name="resenia" id="resenia" cols="30" rows="10" placeholder=" escribir"
+                                        #resenia class="form-textarea">{{t.resenia}}</textarea>
+                                    <br><br>
+
+                                    <label for="opciones">Categoría: </label>
+                                    <select name="opciones" id="opciones" [(ngModel)]="categoria"
+                                        placeholder="Seleccione">
+                                        <option value="Tarea">Tarea</option>
+                                        <option value="Prueba">Prueba</option>
+                                        <option value="Examen">Examen</option>
+                                        <option value="Práctica">Práctica</option>
+                                        <option value="Materia">Materia</option>
+                                    </select>
+                                    <br><br>
+
+                                    <label for="">Ingrese la fecha: </label>
+                                    <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
+                                    <br><br>
+
+                                    <button type="submit" (click)="actualizarNota(t)">Guardar</button>
+                                    <button type="submit" (click)="cancelarEdicion()">Cancelar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-pruebas">
+        <div class="contenedor-secundario">
+            <h1>Pruebas</h1>
+            <div class="notas-list">
+                <div *ngFor="let p of pruebas" class="notas-cargadas">
+                    <h2>{{p.titulo}}</h2>
+                    <div class="tarea-res">
+                        {{p.resenia}}
+                    </div>
+                    <div>
+                        {{p.fecha}}
+                    </div>
+                    <div class="btn-edit-elim">
+                        <button class="btn" (click)="editarNota(p)" [disabled]="botonDesac">Editar Nota</button>
+                        <button class="btn" (click)="eliminarNota(p)" [disabled]="botonDesac">Eliminar Nota</button>
+                    </div>
+
+                    <div class="contenedor-form-edit">
+                        <div *ngIf="mostrarFormulario && p == notaEditando" class="form-edit-nota">
+                            <form action="" id="formularioNota" class="form-text">
+                                <label for="nombreNota">Nombre de la Nota: </label>
+                                <br>
+                                <textarea id="titulo" name="titulo" type="text" placeholder=" nota" #titulo
+                                    class="titulo-input">{{p.titulo}}</textarea>
+                                <br><br>
+
+                                <label for="">Escriba: </label>
+                                <br>
+
+                                <textarea name="resenia" id="resenia" cols="30" rows="10" placeholder=" escribir"
+                                    #resenia class="form-textarea">{{p.resenia}}</textarea>
+                                <br><br>
+
+                                <label for="opciones">Categoría: </label>
+                                <select name="opciones" id="opciones" [(ngModel)]="categoria" placeholder="Seleccione">
+                                    <option value="Tarea">Tarea</option>
+                                    <option value="Prueba">Prueba</option>
+                                    <option value="Examen">Examen</option>
+                                    <option value="Práctica">Práctica</option>
+                                    <option value="Materia">Materia</option>
+                                </select>
+                                <br><br>
+
+                                <label for="">Ingrese la fecha: </label>
+                                <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
+                                <br><br>
+
+                                <button type="submit" (click)="actualizarNota(p)">Guardar</button>
+                                <button type="submit" (click)="cancelarEdicion()">Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-examenes">
+        <div class="contenedor-secundario">
+            <h1>Examenes</h1>
+            <div class="notas-list">
+                <div *ngFor="let e of examenes" class="notas-cargadas">
+                    <h2>{{e.titulo}}</h2>
+                    <div class="tarea-res">
+                        {{e.resenia}}
+                    </div>
+                    <div>
+                        {{e.fecha}}
+                    </div>
+                    <div class="btn-edit-elim">
+                        <button class="btn" (click)="editarNota(e)" [disabled]="botonDesac">Editar Nota</button>
+                        <button class="btn" (click)="eliminarNota(e)" [disabled]="botonDesac">Eliminar Nota</button>
+                    </div>
+
+                    <div class="contenedor-form-edit">
+                        <div *ngIf="mostrarFormulario && e == notaEditando" class="form-edit-nota">
+                            <form action="" id="formularioNota" class="form-text">
+                                <label for="nombreNota">Nombre de la Nota: </label>
+                                <br>
+                                <textarea id="titulo" name="titulo" type="text" placeholder=" nota" #titulo
+                                    class="titulo-input">{{e.titulo}}</textarea>
+                                <br><br>
+
+                                <label for="">Escriba: </label>
+                                <br>
+
+                                <textarea name="resenia" id="resenia" cols="30" rows="10" placeholder=" escribir"
+                                    #resenia class="form-textarea">{{e.resenia}}</textarea>
+                                <br><br>
+
+                                <label for="opciones">Categoría: </label>
+                                <select name="opciones" id="opciones" [(ngModel)]="categoria" placeholder="Seleccione">
+                                    <option value="Tarea">Tarea</option>
+                                    <option value="Prueba">Prueba</option>
+                                    <option value="Examen">Examen</option>
+                                    <option value="Práctica">Práctica</option>
+                                    <option value="Materia">Materia</option>
+                                </select>
+                                <br><br>
+
+                                <label for="">Ingrese la fecha: </label>
+                                <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
+                                <br><br>
+
+                                <button type="submit" (click)="actualizarNota(e)">Guardar</button>
+                                <button type="submit" (click)="cancelarEdicion()">Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-practicas">
+        <div class="contenedor-secundario">
+            <h1>Prácticas</h1>
+            <div class="notas-list">
+                <div *ngFor="let p of practicas" class="notas-cargadas">
+                    <h2>{{p.titulo}}</h2>
+                    <div class="tarea-res">
+                        {{p.resenia}}
+                    </div>
+                    <div>
+                        {{p.fecha}}
+                    </div>
+                    <div class="btn-edit-elim">
+                        <button class="btn" (click)="editarNota(p)" [disabled]="botonDesac">Editar Nota</button>
+                        <button class="btn" (click)="eliminarNota(p)" [disabled]="botonDesac">Eliminar Nota</button>
+                    </div>
+
+                    <div class="contenedor-form-edit">
+                        <div *ngIf="mostrarFormulario && p == notaEditando" class="form-edit-nota">
+                            <form action="" id="formularioNota" class="form-text">
+                                <label for="nombreNota">Nombre de la Nota: </label>
+                                <br>
+                                <textarea id="titulo" name="titulo" type="text" placeholder=" nota" #titulo
+                                    class="titulo-input">{{p.titulo}}</textarea>
+                                <br><br>
+
+                                <label for="">Escriba: </label>
+                                <br>
+
+                                <textarea name="resenia" id="resenia" cols="30" rows="10" placeholder=" escribir"
+                                    #resenia class="form-textarea">{{p.resenia}}</textarea>
+                                <br><br>
+
+                                <label for="opciones">Categoría: </label>
+                                <select name="opciones" id="opciones" [(ngModel)]="categoria" placeholder="Seleccione">
+                                    <option value="Tarea">Tarea</option>
+                                    <option value="Prueba">Prueba</option>
+                                    <option value="Examen">Examen</option>
+                                    <option value="Práctica">Práctica</option>
+                                    <option value="Materia">Materia</option>
+                                </select>
+                                <br><br>
+
+                                <label for="">Ingrese la fecha: </label>
+                                <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
+                                <br><br>
+
+                                <button type="submit" (click)="actualizarNota(p)">Guardar</button>
+                                <button type="submit" (click)="cancelarEdicion()">Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-materia">
+        <div class="contenedor-secundario">
+            <h1>Materia</h1>
+            <div class="notas-list">
+                <div *ngFor="let m of materias" class="notas-cargadas">
+                    <h2>{{m.titulo}}</h2>
+                    <div class="tarea-res">
+                        {{m.resenia}}
+                    </div>
+                    <div>
+                        {{m.fecha}}
+                    </div>
+                    <!--div class="tarea-cat">
+                        {{m.categoria}}
+                    </div-->
+                    <div class="btn-edit-elim">
+                        <button class="btn" (click)="editarNota(m)" [disabled]="botonDesac">Editar Nota</button>
+                        <button class="btn" (click)="eliminarNota(m)" [disabled]="botonDesac">Eliminar Nota</button>
+                    </div>
+
+                    <div class="contenedor-form-edit">
+                        <div *ngIf="mostrarFormulario && m == notaEditando" class="form-edit-nota">
+                            <form action="" id="formularioNota" class="form-text">
+                                <label for="nombreNota">Nombre de la Nota: </label>
+                                <br>
+                                <textarea id="titulo" name="titulo" type="text" placeholder=" nota" #titulo
+                                    class="titulo-input">{{m.titulo}}</textarea>
+                                <br><br>
+
+                                <label for="">Escriba: </label>
+                                <br>
+
+                                <textarea name="resenia" id="resenia" cols="30" rows="10" placeholder=" escribir"
+                                    #resenia class="form-textarea">{{m.resenia}}</textarea>
+                                <br><br>
+
+                                <label for="opciones">Categoría: </label>
+                                <select name="opciones" id="opciones" [(ngModel)]="categoria" placeholder="Seleccione">
+                                    <option value="Tarea">Tarea</option>
+                                    <option value="Prueba">Prueba</option>
+                                    <option value="Examen">Examen</option>
+                                    <option value="Práctica">Práctica</option>
+                                    <option value="Materia">Materia</option>
+                                </select>
+                                <br><br>
+
+                                <label for="">Ingrese la fecha: </label>
+                                <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
+                                <br><br>
+
+                                <button type="submit" (click)="actualizarNota(m)">Guardar</button>
+                                <button type="submit" (click)="cancelarEdicion()">Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-contenedor">
+        <footer>
+            <div class="text-footer">
+                <H3>Realizado por:</H3>
+                <H2>Paúl Mateo Sigua Calle</H2>
+                <H3>Universidad Politécnica Salesiana</H3>
+            </div>
+        </footer>
+    </div>
+</div>

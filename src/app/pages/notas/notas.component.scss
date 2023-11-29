@@ -1,0 +1,330 @@
+.contenedor-init {
+    border: 2px solid black;
+    margin: 25px;
+    padding: 20px;
+    justify-content: center;
+    border-left: 0px;
+    border-right: 0px;
+    border-block-end: 0px;
+    margin-top: 0px;
+    padding-block-end: 0px;
+}
+
+.bienvenida{
+    text-align: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-block-end: 2px;
+}
+
+.notas-cargadas {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px;
+    border: 1px solid #5d87ff;
+
+    &:hover {
+        border: 1px solid #26d07c;
+    }
+
+    padding: 20px;
+}
+
+.contenedor-secundario {
+    justify-content: center;
+    align-items: center;
+}
+
+.notas-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .contenedor-secundario{
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .notas-list{
+        margin: 0;
+        padding: 0;
+    }
+
+    .bienvenida{
+        padding: 1px;
+        font-size: 15px;
+    }
+    .notas-cargadas {
+        flex-direction: column;
+        width: auto;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .notas-cargadas {
+        flex-direction: column;
+        width: 450px;
+        height: auto;
+    }
+
+    .form-edit-nota{
+        width: auto;
+        height: auto;
+    }
+
+    .form-text{
+        width: auto;
+        height: auto;
+    }
+
+    .contenedor-form-edit {
+        width: auto;
+        height: auto;
+    }
+
+    .form-edit-nota .titulo-input {
+        width: 250px;
+    }
+
+    .form-edit-nota .form-text .form-textarea {
+        max-width: 250px;
+        min-width: 250px;
+        height: auto;
+    }
+
+    .form-text select {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .notas-list{
+        padding: 5px;
+    }
+
+    .notas-cargadas {
+        flex-direction: column;
+        width: 270px;
+        height: auto;
+    }
+
+    .form-edit-nota .titulo-input {
+        width: 180px;
+    }
+
+    .form-edit-nota .form-text .form-textarea {
+        max-width: 180px;
+        min-width: 180px;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+
+
+    .contenedor .contenedor-tareas .notas-cargadas{
+        margin: 1px;
+        margin-block-end: 5px;
+    }
+}
+
+.contenedor-tareas {
+    height: auto;
+    width: auto;
+    margin: 20px;
+    border: 1px solid #000000;
+    background-color: #c3ffed;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.contenedor-pruebas {
+    height: auto;
+    width: auto;
+    margin: 20px;
+    border: 1px solid #000000;
+    background-color: rgb(146, 244, 248);
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.contenedor-examenes {
+    height: auto;
+    width: auto;
+    margin: 20px;
+    border: 1px solid #000000;
+    background-color: rgb(245, 248, 146);
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.contenedor-practicas {
+    height: auto;
+    width: auto;
+    margin: 20px;
+    border: 1px solid #000000;
+    background-color: rgb(255, 146, 119);
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.contenedor-materia {
+    height: auto;
+    width: auto;
+    margin: 20px;
+    border: 1px solid #000000;
+    background-color: rgb(241, 241, 241);
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-edit-elim {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.btn {
+    margin: 5px;
+    width: 120px;
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid rgb(185, 183, 183);
+    cursor: pointer;
+    background-color: #ffffff;
+    color: black;
+
+    &:hover {
+        border: 1px solid rgb(176, 176, 176);
+        background: linear-gradient(95deg, #00a3e0 14%, #26d07c 85%);
+        outline: none;
+    }
+}
+
+.contenedor-form-edit {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-edit-nota {
+    border-radius: 10px;
+    margin: 10px;
+    border: 1px solid #5d87ff;
+    padding: 7px;
+}
+
+.titulo-input {
+    border-radius: 10px;
+    border: 1px solid #dee0e6;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 40px;
+    resize: none;
+
+    &:focus {
+        border: 1px solid #b7bac3;
+        outline: none;
+    }
+}
+
+.form-text .form-textarea {
+    border-radius: 10px;
+    max-width: 300px;
+    min-width: 300px;
+    min-height: 200px;
+    max-height: 200px;
+    padding: 7px;
+
+    border: 1px solid rgb(203, 203, 203);
+
+    &:focus {
+        border: 1px solid rgb(123, 123, 123);
+        outline: none;
+    }
+}
+
+.form-text select {
+    border-radius: 10px;
+    height: 30px;
+    width: 90px;
+    border: 1px solid rgb(203, 203, 203);
+    color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &:focus {
+        border: 1px solid rgb(123, 123, 123);
+        outline: none;
+    }
+}
+
+.form-text .input-fecha{
+    width: 150px;
+    border-radius: 10px;
+    height: 25px;
+    border: 1px solid rgb(203, 203, 203);
+    padding: 7px;
+    
+    &:focus{
+        border: 1px solid rgb(123, 123, 123);
+        outline: none;
+    }
+}
+
+.form-text button {
+    width: 120px;
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid rgb(185, 183, 183);
+    cursor: pointer;
+    background-color: #ffffff;
+    margin: 5px;
+    color: black;
+
+    &:hover {
+        border: 1px solid rgb(176, 176, 176);
+        background: linear-gradient(95deg, #00a3e0 14%, #26d07c 85%);
+        outline: none;
+    }
+}
+
+footer{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-left: 0px;
+    border-right: 0px;
+    border-block-end: 0px;
+    margin-block-end: 0;
+    margin-top: 0;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.text-footer h2, h3{
+    margin: 10px;
+}
+
+.text-footer{
+    display: grid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+}

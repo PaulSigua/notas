@@ -1,0 +1,41 @@
+.contenedor-secundario{
+    display: flex;
+    height: 80px;
+    justify-content: center;
+}
+
+.contenedor-secundario nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-secundario li{
+    display: inline;
+    padding: 40px;
+}
+
+.contenedor-secundario ul{
+    display: flex;
+    padding-right: 40px;
+}
+
+.contenedor-secundario a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+
+    /*z-index: 1;
+    margin: 0;
+    padding: 0;
+    //background: linear-gradient(95deg, rgb(223, 94, 24) 14%, #dcd62b 85%);
+    word-wrap: linear-gradient(95deg, #9b2ee4 14%, #26d07c 85%);
+    border: 0;
+    cursor: pointer; 
+    -webkit-appearance: none;*/
+}
+
+nav{
+    width: 100%;
+}
+

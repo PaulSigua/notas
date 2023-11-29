@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "notas-8e7df"
+  },
+  "targets": {
+    "notas-8e7df": {
+      "hosting": {
+        "notas": [
+          "notas-8e7df"
+        ]
+      }
+    }
+  }
+}

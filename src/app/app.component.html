@@ -1,0 +1,14 @@
+<div class="contenedor">
+  <div class="contenedor-secundario">
+    <nav>
+      <ul>
+        <li *ngFor="let p of pages">
+          <a href="" [routerLink]="p.path"><b>{{p.enlace}}</b></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>
