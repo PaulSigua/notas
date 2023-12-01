@@ -47,6 +47,7 @@ export class NotasComponent {
   }
 
   async actualizarNota(nota: Notas){
+    this.botonDesac = true;
     console.log("editando")
     try {
       const formulario = document.getElementById('formularioNota') as HTMLFormElement;
@@ -64,7 +65,7 @@ export class NotasComponent {
       };
 
       console.log("2")
-      if (!titulo.valueOf || !resenia.valueOf || this.categoria == null || !fecha.valueOf) {
+      if (titulo == "" || resenia == "" || this.categoria == "" || fecha == "") {
         alert("Debe llenar todos los parametros");
       } else {
 

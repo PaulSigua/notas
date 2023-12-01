@@ -2,6 +2,7 @@
     color: rgb(255, 255, 255);
 }
 
+// Contenedor inicial que muestra la linea visible en la parte superior de la pantalla de inicio
 .contenedor-init{
     border: 2px solid black;
     margin: 25px;
@@ -13,6 +14,7 @@
     margin-top: 0px;
 }
 
+// Estilo para la palabra Bienvenida
 .bienvenida{
     text-align: center;
     align-items: center;
@@ -23,6 +25,7 @@
     padding-block-end: 2px;
 }
 
+// Estilo para el texto de bienvenida
 .texto-ini{
     display: flex;
     justify-content: center;
@@ -32,27 +35,13 @@
     font-size: 30px;
 }
 
-.btn-ini{
-    margin: 20px;
-    width: 120px;
-    border-radius: 10px;
-    height: 40px;
-    border: 1px solid rgb(185, 183, 183);
-    cursor: pointer;
-    background-color: #ffffff;
-
-    &:hover{
-        border: 1px solid rgb(176, 176, 176);
-        background: linear-gradient(95deg, #00a3e0 14%, #26d07c 85%);
-        outline: none;
-    }
-}
-
+// Primer contenedor del formulario
 .formulario{
     width: auto;
     height: auto;
 }
 
+// Segundo contenedor del formulario
 .form-init{
     display: flex;
     justify-content: center;
@@ -88,11 +77,12 @@
 }
 
 .form-text .input-fecha{
-    width: 150px;
+    width: 100px;
     border-radius: 10px;
     height: 25px;
     border: 1px solid rgb(203, 203, 203);
     padding: 7px;
+    margin: 5px;
     
     &:focus{
         border: 1px solid rgb(123, 123, 123);
@@ -188,7 +178,7 @@ footer{
     border-left: 0px;
     border-right: 0px;
     border-block-end: 0px;
-    margin: 25px;
+    margin: 15px;
     margin-block-end: 0;
     margin-top: 0;
     padding: 10px;

@@ -196,7 +196,7 @@
                         {{p.fecha}}
                     </div>
                     <div class="btn-edit-elim">
-                        <button class="btn" (click)="editarNota(p)" [disabled]="botonDesac">Editar Nota</button>
+                        <button class="btn" (click)="editarNota(p)" [disabled]="botonDesac" [ngClass]="{'btn-desactivado': botonDesac}">Editar Nota</button>
                         <button class="btn" (click)="eliminarNota(p)" [disabled]="botonDesac">Eliminar Nota</button>
                     </div>
 

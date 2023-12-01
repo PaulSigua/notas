@@ -24,7 +24,9 @@ export class InicioComponent {
       this.notas = notas);
   }
 
+  //Metodo que permite guardar los datos ingresados en este caso para las notas
   guardarNota(titulo: HTMLInputElement, resenia: HTMLTextAreaElement, fecha: HTMLInputElement) {
+    //Condicion que permite validar si se ingresaron todos los datos
     if (!titulo.value || !resenia.value || !this.categoria || !fecha.value) {
       alert('Debe completar todos los campos');
       return false;
@@ -40,6 +42,7 @@ export class InicioComponent {
       this.notasSer.guardarTareaFire(nota);
       alert('Nota guardada');
 
+      //Redirige a la pagina de notas
       this.router.navigate(['./pages/notas']);
       titulo.focus();
       return false;

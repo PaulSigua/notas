@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+//Importamos un estilo de letra desde google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Barlow+Semi+Condensed:wght@100&family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
 
+//Establecemos un cuerpo predeterminado para todas las paginas
 body{
     font-family: 'Barlow Semi Condensed', sans-serif;
     margin: 0px;
