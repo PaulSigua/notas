@@ -1,3 +1,4 @@
+<!-- Contenedores Principales de la pagina Notas -->
 <div class="contenedor">
     <div class="contenedor-titulo">
         <div class="contenedor-init">
@@ -6,11 +7,14 @@
             </div>
         </div>
     </div>
+
+    <!-- Contenedor de la categoria Tareas -->
     <div class="contenedor-tareas">
         <div class="contenedor-secundario">
             <h1>Tareas</h1>
             <div class="columnas">
                 <div class="notas-list">
+                    <!-- Recorremos la lista materias y obtenemos los datos y los almacenamos en la variable "t" -->
                     <div *ngFor="let t of tareas" class="notas-cargadas">
                         <h2>{{t.titulo}}</h2>
                         <div class="tarea-res">
@@ -19,13 +23,18 @@
                         <div>
                             {{t.fecha}}
                         </div>
+                        <!-- Contenedor de los botones -->
                         <div class="btn-edit-elim">
+                            <!-- Botones para editar y eliminar las notas-->
                             <button class="btn" (click)="editarNota(t)" [disabled]="botonDesac">Editar Nota</button>
                             <button class="btn" (click)="eliminarNota(t)" [disabled]="botonDesac">Eliminar Nota</button>
                         </div>
 
                         <div class="contenedor-form-edit">
+                            <!-- Contenedor del formulario para la edicion de las notas -->
                             <div *ngIf="mostrarFormulario && t == notaEditando" class="form-edit-nota">
+
+                                <!-- Formulario edicion de notas -->
                                 <form action="" id="formularioNota" class="form-text">
                                     <label for="nombreNota">Nombre de la Nota: </label>
                                     <br>
@@ -67,10 +76,14 @@
         </div>
     </div>
 
+    <!-- El codigo practicamente se repite en los demas contenedoes, simplemente cambia la lista/array de las categorias -->
+    
+    <!-- Contenedor de la categoria Pruebas -->
     <div class="contenedor-pruebas">
         <div class="contenedor-secundario">
             <h1>Pruebas</h1>
             <div class="notas-list">
+                <!-- Recorremos la lista materias y obtenemos los datos y los almacenamos en la variable "p" -->
                 <div *ngFor="let p of pruebas" class="notas-cargadas">
                     <h2>{{p.titulo}}</h2>
                     <div class="tarea-res">
@@ -125,10 +138,12 @@
         </div>
     </div>
 
+    <!-- Contenedor de la categoria Examenes -->
     <div class="contenedor-examenes">
         <div class="contenedor-secundario">
             <h1>Examenes</h1>
             <div class="notas-list">
+                <!-- Recorremos la lista materias y obtenemos los datos y los almacenamos en la variable "e" -->
                 <div *ngFor="let e of examenes" class="notas-cargadas">
                     <h2>{{e.titulo}}</h2>
                     <div class="tarea-res">
@@ -183,10 +198,12 @@
         </div>
     </div>
 
+    <!-- Contenedor de la categoria Practicas -->
     <div class="contenedor-practicas">
         <div class="contenedor-secundario">
             <h1>Prácticas</h1>
             <div class="notas-list">
+                <!-- Recorremos la lista materias y obtenemos los datos y los almacenamos en la variable "p" -->
                 <div *ngFor="let p of practicas" class="notas-cargadas">
                     <h2>{{p.titulo}}</h2>
                     <div class="tarea-res">
@@ -241,10 +258,12 @@
         </div>
     </div>
 
+    <!-- Contenedor de la categoria Materia -->
     <div class="contenedor-materia">
         <div class="contenedor-secundario">
             <h1>Materia</h1>
             <div class="notas-list">
+                <!-- Recorremos la lista materias y obtenemos los datos y los almacenamos en la variable "m" -->
                 <div *ngFor="let m of materias" class="notas-cargadas">
                     <h2>{{m.titulo}}</h2>
                     <div class="tarea-res">

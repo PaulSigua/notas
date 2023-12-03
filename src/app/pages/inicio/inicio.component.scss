@@ -48,6 +48,7 @@
     align-items: center;
 }
 
+//Estilo para nuestro contenedor del formulario
 .form-contenedor{
     width: 800px;
     height: auto;
@@ -63,6 +64,7 @@
     font-size: 25px;
 }
 
+//Estilo para el input del nombre de la receta
 .form-text input{
     width: 250px;
     border-radius: 10px;
@@ -76,6 +78,7 @@
     }
 }
 
+//Estilo para el input de la fecha
 .form-text .input-fecha{
     width: 100px;
     border-radius: 10px;
@@ -90,6 +93,7 @@
     }
 }
 
+//Estilo para el textArea del formulario
 .form-text textarea{
     border-radius: 10px;
     max-width: 400px;
@@ -106,6 +110,7 @@
     }
 }
 
+//Estilo para el input desplegable
 .form-text select{
     border-radius: 10px;
     height: 30px;
@@ -123,6 +128,7 @@
     }
 }
 
+//Estilo para el boton del formulario
 .form-text button{
     width: 120px;
     border-radius: 10px;
@@ -139,6 +145,7 @@
     }
 }
 
+//Estilos aplicados solo en pantallas con un ancho máximo de 500px
 @media only screen and (max-width: 500px) {
     .bienvenida{
         font-size: 15px;
@@ -151,6 +158,7 @@
     }
 }
 
+//Estilos aplicados solo en pantallas con un ancho máximo de 400px
 @media only screen and (max-width: 400px) {
     .texto-ini{
         font-size: 20px;
@@ -172,6 +180,7 @@
 
 }
 
+//Estilo para el footer
 footer{
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
@@ -185,10 +194,12 @@ footer{
     padding-top: 0px;
 }
 
+//Estilo para h2 y h3
 .text-footer h2, h3{
     margin: 10px;
 }
 
+//Estilo para el texto
 .text-footer{
     display: grid;
     color: rgb(0, 0, 0);

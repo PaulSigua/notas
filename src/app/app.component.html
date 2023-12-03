@@ -1,8 +1,11 @@
+<!-- Contenedores del nav estatico-->
 <div class="contenedor">
   <div class="contenedor-secundario">
     <nav>
       <ul>
+        <!-- Recorremos las paginas almacenadas en la variable "p" -->
         <li *ngFor="let p of pages">
+          <!-- Mostramos las paginas -->
           <a href="" [routerLink]="p.path"><b>{{p.enlace}}</b></a>
         </li>
       </ul>

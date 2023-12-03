@@ -1,3 +1,5 @@
+
+//Damos estilo a los contendores
 .contenedor-secundario{
     display: flex;
     height: 80px;
@@ -35,6 +37,7 @@
     -webkit-appearance: none;*/
 }
 
+// Hacemos que nuestro nav ocupe el 100% de la pagina
 nav{
     width: 100%;
 }

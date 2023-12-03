@@ -11,24 +11,28 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class NotasComponent {
 
+  //Listas/Arrays para las categorias
   tareas: any ;
   pruebas: any ;
   examenes: any ;
   practicas: any;
   materias: any;
 
+  //Variables Boolean 
   mostrarFormulario: boolean = false;
   notaEditando!: Notas;
   botonDesac: boolean = false;
 
   categoria: string  = '';
 
+  //Constructor
   constructor(
     private fb: FormBuilder,
     private notasSer: FireServiceService,
     private firestorage: Firestore,
   ){}
 
+  //Metodo para eliminar las notas
   async eliminarNota(nota: Notas){
     const confirmacion = window.confirm(`¿Deseas eliminar la nota: ${nota.titulo}?`)
 
@@ -40,12 +44,14 @@ export class NotasComponent {
     }
   }
 
+  //Metodo para desplegar el formulario de edicion
   editarNota(nota: Notas){
     this.botonDesac = true;
     this.notaEditando = nota;
     this.mostrarFormulario = true;
   }
 
+  //Metodo para actualizar las notas editadas
   async actualizarNota(nota: Notas){
     this.botonDesac = true;
     console.log("editando")
@@ -86,11 +92,14 @@ export class NotasComponent {
     }
   }
 
+  //Metodo para cancelar la edicion (ocultar el formulario)
   cancelarEdicion(){
     this.mostrarFormulario = false;
     this.botonDesac = false;
   }
 
+  //Metodo que permite ejecutar lineas de codigo después de que Angular ha inicializado 
+  //todas las propiedades del componente y ha establecido la conexión entre el componente y su vista
   ngOnInit(): void {
     this.notasSer.getTareas('Tarea').subscribe(tareas => {
       this.tareas = tareas;

@@ -1,3 +1,4 @@
+// Constante para la conexion con firebase
 export const environment = {
     firebaseConfig: {
         apiKey: "AIzaSyB7DxQ1FwuFjKnUHx-TZ1nukTJUSi6BgJM",

@@ -1,3 +1,4 @@
+// Clase para nuestras Notas
 export class Notas {
     uid?: string;
     titulo?: string;

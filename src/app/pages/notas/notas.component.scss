@@ -1,3 +1,4 @@
+//Estilo para el contenedor inicial
 .contenedor-init {
     border: 2px solid black;
     margin: 25px;
@@ -10,6 +11,7 @@
     padding-block-end: 0px;
 }
 
+//Estilo para la bienvenida
 .bienvenida{
     text-align: center;
     align-items: center;
@@ -20,6 +22,7 @@
     padding-block-end: 2px;
 }
 
+//Estilo para el contenedor de las notas
 .notas-cargadas {
     width: auto;
     height: auto;
@@ -47,6 +50,7 @@
     align-items: center;
 }
 
+//Estilos aplicados solo en pantallas con un ancho máximo de 500px
 @media only screen and (max-width: 550px) {
     .notas-cargadas {
         flex-direction: column;
@@ -96,6 +100,7 @@
     }
 }
 
+//Estilos aplicados solo en pantallas con un ancho máximo de 400px
 @media only screen and (max-width: 400px) {
     .notas-cargadas {
         flex-direction: column;
@@ -133,6 +138,7 @@
     }
 }
 
+//Estilos aplicados solo en pantallas con un ancho máximo de 400px
 @media only screen and (max-width: 400px) {
     .contenedor-form-edit .form-edit-nota .form-text .form-textarea {
         width: 190px;
@@ -141,6 +147,7 @@
     }
 }
 
+//Estilo para el contenedor de las tareas
 .contenedor-tareas {
     height: auto;
     width: auto;
@@ -152,6 +159,7 @@
     text-align: center;
 }
 
+//Estilo para el contenedor de las pruebas
 .contenedor-pruebas {
     height: auto;
     width: auto;
@@ -163,6 +171,7 @@
     text-align: center;
 }
 
+//Estilo para el contenedor de las examenes
 .contenedor-examenes {
     height: auto;
     width: auto;
@@ -174,6 +183,7 @@
     text-align: center;
 }
 
+//Estilo para el contenedor de las practicas
 .contenedor-practicas {
     height: auto;
     width: auto;
@@ -185,6 +195,7 @@
     text-align: center;
 }
 
+//Estilo para el contenedor de las materia
 .contenedor-materia {
     height: auto;
     width: auto;
@@ -196,17 +207,20 @@
     text-align: center;
 }
 
+//Estilo para el boton al momento de desactivarse
 .btn-desactivado {
     background-color: none;
     cursor: not-allowed;
 }
 
+//Estilo para los botones de las notas
 .btn-edit-elim {
     display: flex;
     justify-content: center;
     margin: 5px;
 }
 
+//Estilo para los botones del formulario de edicion
 .btn {
     margin: 5px;
     width: 120px;
@@ -224,12 +238,14 @@
     }
 }
 
+//Estilo para el contenedor del formulario
 .contenedor-form-edit {
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
+//Estilo para el formulario
 .form-edit-nota {
     border-radius: 10px;
     margin: 10px;
@@ -237,6 +253,7 @@
     padding: 7px;
 }
 
+//Estilo para el titulo de la categoria o seccion
 .titulo-input {
     border-radius: 10px;
     border: 1px solid #dee0e6;
@@ -253,6 +270,7 @@
     }
 }
 
+//Estilo para el textarea del formulario
 .form-text .form-textarea {
     border-radius: 10px;
     max-width: 300px;
@@ -269,6 +287,7 @@
     }
 }
 
+//estilo para el input desplegable
 .form-text select {
     border-radius: 10px;
     height: 30px;
@@ -285,6 +304,7 @@
     }
 }
 
+//estilo para el input de la fecha
 .form-text .input-fecha{
     width: 100px;
     border-radius: 10px;
@@ -298,6 +318,7 @@
     }
 }
 
+//estilo para los botones del formulario
 .form-text button {
     width: 120px;
     border-radius: 10px;
@@ -316,6 +337,7 @@
     }
 }
 
+//estilo para el footer
 footer{
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
@@ -329,10 +351,12 @@ footer{
     padding-top: 0px;
 }
 
+//estilo para los titulos
 .text-footer h2, h3{
     margin: 10px;
 }
 
+//estilo para los textos
 .text-footer{
     display: grid;
     color: rgb(0, 0, 0);

@@ -14,10 +14,13 @@ export class InicioComponent {
   listaNotas: any;
 
   categoria: string = '';
+
+  //Constructor
   constructor(
     private router: Router,
     private notasSer: FireServiceService,
   ) {
+    //Obtenemos los datos de la base de datos utilizando un metodo de un servicio
     this.listaNotas = this.notasSer.getAll();
 
     this.notasSer.imprimirNotas().subscribe((notas) =>
