@@ -1,3 +1,4 @@
+//Importamos las librerias que necesitamos para la aplicacion
 import { Component } from '@angular/core';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
 import { Notas } from 'src/app/models/nota';
@@ -12,28 +13,30 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class NotasComponent {
 
   //Listas/Arrays para las categorias
-  tareas: any ;
-  pruebas: any ;
-  examenes: any ;
+  tareas: any;
+  pruebas: any;
+  examenes: any;
   practicas: any;
   materias: any;
+
+  otrasCategorias: any;
 
   //Variables Boolean 
   mostrarFormulario: boolean = false;
   notaEditando!: Notas;
   botonDesac: boolean = false;
 
-  categoria: string  = '';
+  categoria: string = '';
 
   //Constructor
   constructor(
     private fb: FormBuilder,
     private notasSer: FireServiceService,
     private firestorage: Firestore,
-  ){}
+  ) { }
 
   //Metodo para eliminar las notas
-  async eliminarNota(nota: Notas){
+  async eliminarNota(nota: Notas) {
     const confirmacion = window.confirm(`¿Deseas eliminar la nota: ${nota.titulo}?`)
 
     if (confirmacion) {
@@ -45,14 +48,14 @@ export class NotasComponent {
   }
 
   //Metodo para desplegar el formulario de edicion
-  editarNota(nota: Notas){
+  editarNota(nota: Notas) {
     this.botonDesac = true;
     this.notaEditando = nota;
     this.mostrarFormulario = true;
   }
 
   //Metodo para actualizar las notas editadas
-  async actualizarNota(nota: Notas){
+  async actualizarNota(nota: Notas) {
     this.botonDesac = true;
     console.log("editando")
     try {
@@ -70,17 +73,18 @@ export class NotasComponent {
         fecha: fecha,
       };
 
-      console.log("2")
+      // Validación de los campos
       if (titulo == "" || resenia == "" || this.categoria == "" || fecha == "") {
         alert("Debe llenar todos los parametros");
       } else {
 
+        //Constante para confirmar la actualización
         const confirmacion = window.confirm("¿Seguro que deseas actualizar?")
 
         if (confirmacion) {
           this.botonDesac = false;
           this.mostrarFormulario = false;
-          
+
           return await updateDoc(notaRef, notas);
         } else {
           this.botonDesac = true;
@@ -93,7 +97,7 @@ export class NotasComponent {
   }
 
   //Metodo para cancelar la edicion (ocultar el formulario)
-  cancelarEdicion(){
+  cancelarEdicion() {
     this.mostrarFormulario = false;
     this.botonDesac = false;
   }

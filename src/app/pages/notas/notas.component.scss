@@ -87,7 +87,8 @@
         width: auto;
     }
 
-    .btn-edit-elim .btn{
+    //Estilos para el boton de eliminar Nota
+    .btn-elim{
         font-size: 10px;
         width: 80px;
         height: 30px;
@@ -208,7 +209,7 @@
 }
 
 //Estilo para el boton al momento de desactivarse
-.btn-desactivado {
+.botonDesac {
     background-color: none;
     cursor: not-allowed;
 }
@@ -236,6 +237,54 @@
         background-color: #dfdfdf;
         outline: none;
     }
+}
+
+//Estilo para el boton de editar de la pagina Notas
+.btn-edit{
+    margin: 5px;
+    width: 120px;
+    border-radius: 10px;
+    height: 40px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid rgb(185, 183, 183);
+
+    &:hover {
+        //background: linear-gradient(95deg, #00a3e0 14%, #26d07c 85%);
+        border: 2px solid rgba(0, 93, 253, 0.558);
+        background-color: white;
+        outline: none;
+    }
+}
+
+//Estilo al momento en el que boton esta desactivado
+.btn-edit:disabled{
+    border: 1px solid rgb(185, 183, 183);
+    cursor: default;
+}
+
+//Estilo para el boton de eliminar de la pagina Notas
+.btn-elim{
+    margin: 5px;
+    width: 120px;
+    border-radius: 10px;
+    height: 40px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid rgb(185, 183, 183);;
+
+    &:hover {
+        //background: linear-gradient(95deg, #00a3e0 14%, #26d07c 85%);
+        border: 2px solid rgba(255, 0, 0, 0.523);
+        background-color: white;
+        outline: none;
+    }
+}
+
+//Estilo al momento en el que boton esta desactivado
+.btn-elim:disabled{
+    border: 1px solid rgb(185, 183, 183);
+    cursor: default;
 }
 
 //Estilo para el contenedor del formulario

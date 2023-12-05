@@ -1,8 +1,9 @@
+//Importamos las librerias que necesitamos para la aplicacion
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Firestore, collection, collectionData, deleteDoc, doc } from '@angular/fire/firestore';
 import { Notas } from '../models/nota';
-import { Observable, map } from 'rxjs';
+import { Observable, map, filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class FireServiceService {
   private path = '/notas';
 
   //Varaiables para poder obtener los datos y almacenar en firebase
+  private categorias: AngularFirestoreCollection<any>;
   private notasRef: AngularFirestoreCollection<any>;
   private tareaCategoria: AngularFirestoreCollection<Notas>;
   private pruebaCategoria: AngularFirestoreCollection<Notas>;
@@ -31,6 +33,7 @@ export class FireServiceService {
     })
 
     //Inicializamos las categorias
+    this.categorias = this.db.collection<Notas>('notas');
     this.tareaCategoria = this.db.collection<Notas>('notas');
     this.pruebaCategoria = this.db.collection<Notas>('notas');
     this.examenCategoria = this.db.collection<Notas>('notas');
@@ -72,7 +75,7 @@ export class FireServiceService {
           return notas.filter(nota => nota.categoria === categoria);
         })
       );
-  }
+  };
 
   //Metodo para obtener las notas de la categoria Pruebas
   getPruebas(categoria: string): Observable<Notas[]> {

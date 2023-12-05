@@ -26,8 +26,8 @@
                         <!-- Contenedor de los botones -->
                         <div class="btn-edit-elim">
                             <!-- Botones para editar y eliminar las notas-->
-                            <button class="btn" (click)="editarNota(t)" [disabled]="botonDesac">Editar Nota</button>
-                            <button class="btn" (click)="eliminarNota(t)" [disabled]="botonDesac">Eliminar Nota</button>
+                            <button class="btn-edit" (click)="editarNota(t)" [disabled]="botonDesac">Editar Nota</button>
+                            <button class="btn-elim" (click)="eliminarNota(t)" [disabled]="botonDesac">Eliminar Nota</button>
                         </div>
 
                         <div class="contenedor-form-edit">
@@ -93,8 +93,8 @@
                         {{p.fecha}}
                     </div>
                     <div class="btn-edit-elim">
-                        <button class="btn" (click)="editarNota(p)" [disabled]="botonDesac">Editar Nota</button>
-                        <button class="btn" (click)="eliminarNota(p)" [disabled]="botonDesac">Eliminar Nota</button>
+                        <button class="btn-edit" (click)="editarNota(p)" [disabled]="botonDesac">Editar Nota</button>
+                        <button class="btn-elim" (click)="eliminarNota(p)" [disabled]="botonDesac">Eliminar Nota</button>
                     </div>
 
                     <div class="contenedor-form-edit">
@@ -153,8 +153,8 @@
                         {{e.fecha}}
                     </div>
                     <div class="btn-edit-elim">
-                        <button class="btn" (click)="editarNota(e)" [disabled]="botonDesac">Editar Nota</button>
-                        <button class="btn" (click)="eliminarNota(e)" [disabled]="botonDesac">Eliminar Nota</button>
+                        <button class="btn-edit" (click)="editarNota(e)" [disabled]="botonDesac">Editar Nota</button>
+                        <button class="btn-elim" (click)="eliminarNota(e)" [disabled]="botonDesac">Eliminar Nota</button>
                     </div>
 
                     <div class="contenedor-form-edit">
@@ -213,8 +213,8 @@
                         {{p.fecha}}
                     </div>
                     <div class="btn-edit-elim">
-                        <button class="btn" (click)="editarNota(p)" [disabled]="botonDesac" [ngClass]="{'btn-desactivado': botonDesac}">Editar Nota</button>
-                        <button class="btn" (click)="eliminarNota(p)" [disabled]="botonDesac">Eliminar Nota</button>
+                        <button class="btn-edit" (click)="editarNota(p)" [disabled]="botonDesac" [ngClass]="{'btn-desactivado': botonDesac}">Editar Nota</button>
+                        <button class="btn-elim" (click)="eliminarNota(p)" [disabled]="botonDesac">Eliminar Nota</button>
                     </div>
 
                     <div class="contenedor-form-edit">
@@ -276,8 +276,8 @@
                         {{m.categoria}}
                     </div-->
                     <div class="btn-edit-elim">
-                        <button class="btn" (click)="editarNota(m)" [disabled]="botonDesac">Editar Nota</button>
-                        <button class="btn" (click)="eliminarNota(m)" [disabled]="botonDesac">Eliminar Nota</button>
+                        <button class="btn-edit" (click)="editarNota(m)" [disabled]="botonDesac">Editar Nota</button>
+                        <button class="btn-elim" (click)="eliminarNota(m)" [disabled]="botonDesac">Eliminar Nota</button>
                     </div>
 
                     <div class="contenedor-form-edit">

@@ -39,6 +39,7 @@ en el archivo enviroment.ts
 2) Estilos con colores no tan profundos
 3) Métodos simples pero efectivos
 4) Conexión a una base de datos
+5) Contiene documentación
 
 # Configuración de la herrmienta PWA #
 

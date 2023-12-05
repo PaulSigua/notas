@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+//Importamos las librerias que necesitamos para la aplicacion
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Notas } from 'src/app/models/nota';
 import { FireServiceService } from 'src/app/services/fire-service.service';
@@ -10,8 +11,9 @@ import { FireServiceService } from 'src/app/services/fire-service.service';
 })
 export class InicioComponent {
 
-  notas: Notas[] = [];
   listaNotas: any;
+
+  categorias: any;
 
   categoria: string = '';
 
@@ -19,13 +21,7 @@ export class InicioComponent {
   constructor(
     private router: Router,
     private notasSer: FireServiceService,
-  ) {
-    //Obtenemos los datos de la base de datos utilizando un metodo de un servicio
-    this.listaNotas = this.notasSer.getAll();
-
-    this.notasSer.imprimirNotas().subscribe((notas) =>
-      this.notas = notas);
-  }
+  ) {}
 
   //Metodo que permite guardar los datos ingresados en este caso para las notas
   guardarNota(titulo: HTMLInputElement, resenia: HTMLTextAreaElement, fecha: HTMLInputElement) {
@@ -34,7 +30,6 @@ export class InicioComponent {
       alert('Debe completar todos los campos');
       return false;
     } else {
-      const notaExiste = this.router.getCurrentNavigation()?.extras.state?.['notas'];
       const nota = {
         titulo: titulo.value,
         resenia: resenia.value,

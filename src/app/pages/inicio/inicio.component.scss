@@ -139,8 +139,8 @@
     color: black;
 
     &:hover{
-        border: 1px solid rgb(176, 176, 176);
-        background: linear-gradient(95deg, #00a3e0 14%, #26d07c 85%);
+        border: 2px solid rgba(0, 153, 255, 0.479);
+        //background: linear-gradient(95deg, #00a3e0 14%, #26d07c 85%);
         outline: none;
     }
 }
