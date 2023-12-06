@@ -1,25 +1,24 @@
 //Importamos las librerias que necesitamos para la aplicacion
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
 import { Notas } from 'src/app/models/nota';
 import { FireServiceService } from 'src/app/services/fire-service.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-notas',
   templateUrl: './notas.component.html',
   styleUrls: ['./notas.component.scss']
 })
-export class NotasComponent {
+export class NotasComponent implements OnInit{
 
   //Listas/Arrays para las categorias
-  tareas: any;
-  pruebas: any;
-  examenes: any;
-  practicas: any;
-  materias: any;
+  listaNotas: any;
+  items$: Observable<any[]> | undefined;
 
-  otrasCategorias: any;
+  notas: Notas[] = [];
 
   //Variables Boolean 
   mostrarFormulario: boolean = false;
@@ -33,19 +32,27 @@ export class NotasComponent {
     private fb: FormBuilder,
     private notasSer: FireServiceService,
     private firestorage: Firestore,
-  ) { }
+  ) {
+    this.notas = notasSer.getInfo();
+    console.log(this.notas);
+    this.listaNotas = notasSer.getAll();
+
+    this.notasSer.getNotas().subscribe((notas) =>
+      this.notas = notas);
+
+   }
 
   //Metodo para eliminar las notas
   async eliminarNota(nota: Notas) {
-    const confirmacion = window.confirm(`¿Deseas eliminar la nota: ${nota.titulo}?`)
+    const confirmacion = window.confirm(`¿Deseas eliminar la nota: ${nota.titulo}?`);
 
     if (confirmacion) {
       const respuesta = this.notasSer.eliminarNota(nota);
       console.log(respuesta);
     } else {
       console.log("no se elimino la receta");
-    }
-  }
+    };
+  };
 
   //Metodo para desplegar el formulario de edicion
   editarNota(nota: Notas) {
@@ -66,7 +73,7 @@ export class NotasComponent {
       const fecha = (formulario.elements.namedItem('fecha') as HTMLInputElement).value;
 
       const notaRef = doc(this.firestorage, `notas/${nota.uid}`);
-      const notas = {
+      const datos = {
         titulo: titulo,
         resenia: resenia,
         categoria: this.categoria,
@@ -85,7 +92,7 @@ export class NotasComponent {
           this.botonDesac = false;
           this.mostrarFormulario = false;
 
-          return await updateDoc(notaRef, notas);
+          return await updateDoc(notaRef, datos);
         } else {
           this.botonDesac = true;
           this.mostrarFormulario = true;
@@ -104,25 +111,12 @@ export class NotasComponent {
 
   //Metodo que permite ejecutar lineas de codigo después de que Angular ha inicializado 
   //todas las propiedades del componente y ha establecido la conexión entre el componente y su vista
-  ngOnInit(): void {
-    this.notasSer.getTareas('Tarea').subscribe(tareas => {
-      this.tareas = tareas;
-    });
+  async ngOnInit(){
+    this.notasSer.getNotas().subscribe(notas => {
+      console.log(notas);
+      this.notas = notas;
+    })
 
-    this.notasSer.getPruebas('Prueba').subscribe(pruebas => {
-      this.pruebas = pruebas;
-    });
-
-    this.notasSer.getExamenes('Examen').subscribe(examenes => {
-      this.examenes = examenes;
-    });
-
-    this.notasSer.getPracticas('Práctica').subscribe(practicas => {
-      this.practicas = practicas;
-    });
-
-    this.notasSer.getMaterias('Materia').subscribe(materias => {
-      this.materias = materias;
-    });
+    this.items$ = this.notasSer.obtenerItems();
   }
 }

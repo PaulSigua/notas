@@ -3,42 +3,48 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Firestore, collection, collectionData, deleteDoc, doc } from '@angular/fire/firestore';
 import { Notas } from '../models/nota';
-import { Observable, map, filter } from 'rxjs';
+import { Observable, map, filter, BehaviorSubject } from 'rxjs';
+import { NavigationEnd, Router, Event } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FireServiceService {
-
+  public currentUrl = new BehaviorSubject<any>(undefined);
   //Path que permite crear una coleccion en firebase
   private path = '/notas';
+  datos: Notas[];
+  notas: Notas[] = [];
 
   //Varaiables para poder obtener los datos y almacenar en firebase
-  private categorias: AngularFirestoreCollection<any>;
   private notasRef: AngularFirestoreCollection<any>;
-  private tareaCategoria: AngularFirestoreCollection<Notas>;
-  private pruebaCategoria: AngularFirestoreCollection<Notas>;
-  private examenCategoria: AngularFirestoreCollection<Notas>;
-  private practicaCategoria: AngularFirestoreCollection<Notas>;
-  private materiaCategoria: AngularFirestoreCollection<Notas>;
 
   //Constructor
   constructor(
     private db: AngularFirestore,
-    private firestorage: Firestore) {
+    private firestorage: Firestore,
+    private router: Router) {
+      this.datos = [];
+
+      this.router.events.subscribe((event: Event) => {
+        if (event instanceof NavigationEnd) {
+          this.currentUrl.next(event.urlAfterRedirects);
+        }
+      });
+
     this.notasRef = db.collection(this.path);
 
     this.notasRef.valueChanges().subscribe(data => {
       console.log(data);
     })
 
-    //Inicializamos las categorias
-    this.categorias = this.db.collection<Notas>('notas');
-    this.tareaCategoria = this.db.collection<Notas>('notas');
-    this.pruebaCategoria = this.db.collection<Notas>('notas');
-    this.examenCategoria = this.db.collection<Notas>('notas');
-    this.practicaCategoria = this.db.collection<Notas>('notas');
-    this.materiaCategoria = this.db.collection<Notas>('notas');
+    //Inicializamos las notas
+    this.notasRef = this.db.collection<Notas>('notas');
+  }
+
+  getNotas(): Observable<Notas[]> { //Este metodo me devuelve un observable para poder obtener todas las recetas
+    const respuesta = collection(this.firestorage, 'recetas');
+    return collectionData(respuesta, {idField: 'uid'}) as Observable<Notas[]>;
   }
 
   //Metodo que permite guardar las notas o tareas
@@ -65,64 +71,24 @@ export class FireServiceService {
     return deleteDoc(recetaRef);
   }
 
-  //Metodo para obtener las notas de la categoria Tareas
-  getTareas(categoria: string): Observable<Notas[]> {
-    return this.tareaCategoria
-      .valueChanges({ idField: 'uid' }) // Obtén cambios en los documentos y agrega el campo 'uid'
-      .pipe(
-        map((notas: Notas[]) => {
-          // Filtra las notas por la categoría deseada
-          return notas.filter(nota => nota.categoria === categoria);
-        })
-      );
-  };
-
-  //Metodo para obtener las notas de la categoria Pruebas
-  getPruebas(categoria: string): Observable<Notas[]> {
-    return this.pruebaCategoria
-      .valueChanges({ idField: 'uid' }) // Obtén cambios en los documentos y agrega el campo 'uid'
-      .pipe(
-        map((notas: Notas[]) => {
-          // Filtra las notas por la categoría deseada
-          return notas.filter(nota => nota.categoria === categoria);
-        })
-      );
+  getInfo() {
+    return this.datos;
+  }
+  
+  addInfo(dato: Notas) {
+    this.datos.push(dato);
+    let datos: Notas[] = [];
+    if (localStorage.getItem('datos') === null) {
+      datos.push(dato);
+      localStorage.setItem('datos', JSON.stringify(datos));
+    } else {
+      datos = JSON.parse(localStorage.getItem('datos')!);
+      datos.push(dato);
+      localStorage.setItem('datos', JSON.stringify(datos));
+    }
   }
 
-  //Metodo para obtener las notas de la categoria Examenes
-  getExamenes(categoria: string): Observable<Notas[]> {
-    return this.examenCategoria
-      .valueChanges({ idField: 'uid' }) // Obtén cambios en los documentos y agrega el campo 'uid'
-      .pipe(
-        map((notas: Notas[]) => {
-          // Filtra las notas por la categoría deseada
-          return notas.filter(nota => nota.categoria === categoria);
-        })
-      );
+  obtenerItems(): Observable<any[]>{
+    return this.db.collection('notas').valueChanges();
   }
-
-  //Metodo para obtener las notas de la categoria Practicas
-  getPracticas(categoria: string): Observable<Notas[]> {
-    return this.practicaCategoria
-      .valueChanges({ idField: 'uid' }) // Obtén cambios en los documentos y agrega el campo 'uid'
-      .pipe(
-        map((notas: Notas[]) => {
-          // Filtra las notas por la categoría deseada
-          return notas.filter(nota => nota.categoria === categoria);
-        })
-      );
-  }
-
-  //Metodo para obtener las notas de la categoria Materia
-  getMaterias(categoria: string): Observable<Notas[]> {
-    return this.materiaCategoria
-      .valueChanges({ idField: 'uid' }) // Obtén cambios en los documentos y agrega el campo 'uid'
-      .pipe(
-        map((notas: Notas[]) => {
-          // Filtra las notas por la categoría deseada
-          return notas.filter(nota => nota.categoria === categoria);
-        })
-      );
-  }
-
 }

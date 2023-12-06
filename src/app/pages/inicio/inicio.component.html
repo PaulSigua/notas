@@ -33,21 +33,40 @@
                     <br><br>
 
                     <!-- Input desplegable que permite seleccionar una categoria-->
-                    <label for="opciones">Categoría: </label>
-                    <select name="opciones" id="opciones" [(ngModel)]="categoria" placeholder="Seleccione">Seleccione
+                    <label for="opciones">Sección: </label>
+                    <select name="opciones" id="opciones" [(ngModel)]="seccion" placeholder="Seleccione">Seleccione
                         <option value="Tarea">Tarea</option>
                         <option value="Prueba">Prueba</option>
                         <option value="Examen">Examen</option>
                         <option value="Práctica">Práctica</option>
                         <option value="Materia">Materia</option>
+                        <option value="Exposicion">Exposicion</option>
+                        <option value="otra" id="otra">Otra</option>
                     </select>
                     <br><br>
 
-                    <label for="">Ingrese la fecha: </label>
-                    <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
-                    <br><br>
+                    <div *ngIf="mostrarNuevaSeccion()" class="nuevaSeccion" id="nuevaSeccion">
+                        <label for="">Nombre de la Sección</label>
+                        <br>
+                        <input type="text" placeholder=" otra" #otra>
+                        <br>
+                        <br>
 
-                    <button type="submit" (click)="guardarNota(titulo, resenia, fecha)">Aceptar</button>
+                        <label for="">Ingrese la fecha: </label>
+                        <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
+                        <br><br>
+
+                        <button type="submit" (click)="guardarNuevaSeccion(titulo, resenia, otra, fecha)">Aceptar</button>
+                    </div>
+
+                    <div *ngIf="mostrarForm">
+                        <label for="">Ingrese la fecha: </label>
+                        <input type="date" #fecha id="fecha" [min]="2023-12-01" [max]="2024-12-31" class="input-fecha">
+                        <br><br>
+
+                        <button type="submit" (click)="guardarNota(titulo, resenia, fecha)">Aceptar</button>
+                    </div>
+
                 </form>
             </div>
         </div>

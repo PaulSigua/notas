@@ -28,11 +28,11 @@
     height: auto;
     border-radius: 10px;
     margin: 10px;
-    border: 1px solid #5d87ff;
-    background-color: rgb(247, 247, 247);
+    border: 1px solid #979797;
+    background-color: rgb(255, 255, 255);
 
     &:hover {
-        border: 1px solid #26d07c;
+        border: 1px solid #bebebeb0;
     }
 
     padding: 20px;
@@ -154,55 +154,8 @@
     width: auto;
     margin: 20px;
     border: 1px solid #000000;
-    background-color: #c3ffed;
-    border-radius: 5px;
-    align-items: center;
-    text-align: center;
-}
-
-//Estilo para el contenedor de las pruebas
-.contenedor-pruebas {
-    height: auto;
-    width: auto;
-    margin: 20px;
-    border: 1px solid #000000;
-    background-color: rgb(146, 244, 248);
-    border-radius: 5px;
-    align-items: center;
-    text-align: center;
-}
-
-//Estilo para el contenedor de las examenes
-.contenedor-examenes {
-    height: auto;
-    width: auto;
-    margin: 20px;
-    border: 1px solid #000000;
-    background-color: rgb(245, 248, 146);
-    border-radius: 5px;
-    align-items: center;
-    text-align: center;
-}
-
-//Estilo para el contenedor de las practicas
-.contenedor-practicas {
-    height: auto;
-    width: auto;
-    margin: 20px;
-    border: 1px solid #000000;
-    background-color: rgb(161, 180, 252);
-    border-radius: 5px;
-    align-items: center;
-    text-align: center;
-}
-
-//Estilo para el contenedor de las materia
-.contenedor-materia {
-    height: auto;
-    width: auto;
-    margin: 20px;
-    border: 1px solid #000000;
-    background-color: #fd9846;
+    //background-color: #c3ffed;
+    //background-color: rgb(146, 244, 248);
     border-radius: 5px;
     align-items: center;
     text-align: center;
@@ -402,7 +355,7 @@ footer{
 
 //estilo para los titulos
 .text-footer h2, h3{
-    margin: 10px;
+    margin: 5px;
 }
 
 //estilo para los textos
